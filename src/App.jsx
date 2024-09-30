@@ -7,6 +7,8 @@ import { refreshUser } from "./redux/auth/operations";
 // import RestrictedRoute from "./components/pages/RestrictedRoute/RestrictedRoute"
 // import ContactList from "./components/ContactList/ContactList";
 import ContactPage from "./components/pages/ContactPage/ContactPage";
+import RestrictedRoute from "./components/pages/RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "./components/pages/PrivateRoute/PrivateRoute";
 // import PrivateRoute from "./components/pages/PrivateRoute/PrivateRoute";
 
 const RegistrationPage = lazy(() =>
@@ -31,9 +33,19 @@ function App() {
           <Routes>
             {/* компоненти рендеряться в компоненті <Navigation */}
             <Route path="/" element={<HomePage />} />
-            <Route path="register" element={<RegistrationPage />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="contacts" element={<LoginPage />} />
+            <Route
+              path="register"
+              element={<RestrictedRoute component={<RegistrationPage />} />}
+            />
+            <Route
+              path="login"
+              element={<RestrictedRoute component={<LoginPage />} />}
+            />
+
+            <Route
+              path="contacts"
+              element={<PrivateRoute component={<LoginPage />} />}
+            />
           </Routes>
         </Suspense>
       </Layout>

@@ -30,7 +30,7 @@ export const register = createAsyncThunk(
       //  для другого API де необхідно вказувати другй API замість axios
       // const { data } = await TWO_API.post(`/users/signup`, credentials);
       setAuthHeder(data.token); // передача ф-ції токену в axios
-      console.log("signup.data", data);
+      // console.log("signup.data", data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.massage); //  опрацювання помилки методом rejectWithValue
