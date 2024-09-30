@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import RegistrationForm from "../../RegistrationForm/RegistrationForm";
-import { selectisLoggedIn } from "../../../redux/auth/selectors";
+import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+import { selectisLoggedIn } from "../../redux/auth/selectors";
 import ContactPage from "../ContactPage/ContactPage";
 
 export default function RegistrationPage() {

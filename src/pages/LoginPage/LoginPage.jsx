@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
-import { selectisLoggedIn } from "../../../redux/auth/selectors";
+import { selectisLoggedIn } from "../../redux/auth/selectors";
 import ContactPage from "../ContactPage/ContactPage";
-import LoginForm from "../../LoginForm/LiginForm";
+import LoginForm from "../../components/LoginForm/LiginForm";
 
 export default function LoginPage() {
     const isLoggedIn = useSelector(selectisLoggedIn);

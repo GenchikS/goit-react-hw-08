@@ -6,16 +6,16 @@ import { useDispatch } from "react-redux";
 import { refreshUser } from "./redux/auth/operations";
 // import RestrictedRoute from "./components/pages/RestrictedRoute/RestrictedRoute"
 // import ContactList from "./components/ContactList/ContactList";
-import ContactPage from "./components/pages/ContactPage/ContactPage";
-import RestrictedRoute from "./components/pages/RestrictedRoute/RestrictedRoute";
-import PrivateRoute from "./components/pages/PrivateRoute/PrivateRoute";
+// import ContactPage from "./pages/ContactPage/ContactPage";
+import RestrictedRoute from "./pages/RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
 // import PrivateRoute from "./components/pages/PrivateRoute/PrivateRoute";
 
 const RegistrationPage = lazy(() =>
-  import(`./components/pages/RegistrationPage/RegistrationPage`)
+  import(`./pages/RegistrationPage/RegistrationPage`)
 );
-const LoginPage = lazy(() => import(`./components/pages/LoginPage/LoginPage`));
-const HomePage = lazy(() => import(`./components/pages/HomePage/HomePage`));
+const LoginPage = lazy(() => import(`./pages/LoginPage/LoginPage`));
+const HomePage = lazy(() => import(`./pages/HomePage/HomePage`));
 
 
 function App() {
