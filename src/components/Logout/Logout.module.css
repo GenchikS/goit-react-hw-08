@@ -1,5 +1,14 @@
-.link{
-    font-weight: 700;
-    font-size: 24px;
+.buttonLogout{
+    font-weight: 400;
+    font-size: 18px;
+    width: 110px;
+    padding: 8px;
     color: black;
+    border: none;
+    background-color: rgb(223, 220, 251);
+    margin-bottom: 8px;
   }
+
+  .buttonLogout:hover{
+    background-color: rgb(164, 156, 244);
+}

@@ -2,12 +2,11 @@ import { useSelector } from "react-redux";
 import css from "./ContactList.module.css";
 import { selectFilteredContacts } from "../../redux/contacts/slice";
 import Contact from "./Contact/Contact";
-// import { selectFilter } from "../../redux/filtersSlice";
 
 export default function ContactList() {
-  //  повернення мемоізованого та отфільтрованного масиву
+//  повернення мемоізованого та отфільтрованного масиву
   const contacts = useSelector(selectFilteredContacts);
-  // console.log("contacts", contacts);
+  console.log("contacts", contacts);
 
   return (
     <ul className={css.container}>

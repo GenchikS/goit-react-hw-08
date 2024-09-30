@@ -12,14 +12,12 @@ const initialValues = {
     password: ""
 };
 
-// fdffdfdffd12121@kkkkk.com
-
 export default function RegistrationForm() {
   const dispatch = useDispatch();
     
     const handleSubmit = (evn, actions) => {
         // console.log("submit.name", evn.name); //  перевірка значення name при submit
-      console.log("submit", evn); //  перевірка введених значень при submit
+      // console.log("submit register", evn); //  перевірка введених значень при submit
       dispatch(register(evn))
         // const addContactUser = evn;
         actions.resetForm(); //  активація скидання форми
@@ -36,7 +34,7 @@ export default function RegistrationForm() {
         // validationSchema={FeedbackSchema}
       >
         <Form className={css.containerForm}>
-          <label htmlFor={nameId}>Name</label>
+          <label htmlFor="name">Name</label>
           <Field type="text" name="name" className={css.name} id={nameId} />
           <ErrorMessage
             className={css.errorName}
@@ -47,7 +45,7 @@ export default function RegistrationForm() {
           <Field type="text" name="email" className={css.name} id={nameId} />
           <ErrorMessage
             className={css.errorName}
-            name="name"
+            name="email"
             component="span"
           />
           <label htmlFor="password">Password</label>
@@ -59,7 +57,7 @@ export default function RegistrationForm() {
           />
           <ErrorMessage
             className={css.errorNumber}
-            name="number"
+            name="password"
             component="span"
           />
           <button className={css.buttonAdd} type="submit">

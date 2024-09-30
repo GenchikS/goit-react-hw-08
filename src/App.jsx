@@ -1,15 +1,4 @@
 import "./App.module.css";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "./redux/contacts/operations";
-import {
-  selectError,
-  selectContacts,
-  selectLoading,
-} from "./redux/contacts/selectors";
-import ContactList from "./components/ContactList/ContactList";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactForm from "./components/ContactForm/ContactForm";
 import Layout from "./components/Layout/Layout";
 
 import { Route, Routes } from "react-router-dom";
@@ -21,20 +10,12 @@ const RegistrationPage = lazy(() =>
 const LoginPage = lazy(() => import(`./components/pages/LoginPage/LoginPage`));
 const HomePage = lazy(() => import(`./components/pages/HomePage/HomePage`));
 
-function App() {
-  const dispatch = useDispatch();
-  // Отримуємо частини стану в useSelector
-  const contacts = useSelector(selectContacts);
-  // console.log("contacts", contacts);
-  const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
 
-  // Викликаємо операцію
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+function App() {
+    
   return (
     <div>
+      {/* {Якщо вийти за межі <Layout>, то шапки Nav не буде} */}
       <Layout>
         <Suspense fallback={null}>
           <Routes>
@@ -45,10 +26,6 @@ function App() {
           </Routes>
         </Suspense>
       </Layout>
-
-      {/* <SearchBox />
-      {contacts && <ContactList />}
-      {isLoading && <p>Loading...</p>} */}
     </div>
   );
 }
