@@ -6,7 +6,7 @@ import Contact from "./Contact/Contact";
 export default function ContactList() {
 //  повернення мемоізованого та отфільтрованного масиву
   const contacts = useSelector(selectFilteredContacts);
-  console.log("contacts", contacts);
+  // console.log("contacts", contacts);
 
   return (
     <ul className={css.container}>

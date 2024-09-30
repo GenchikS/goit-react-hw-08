@@ -1,9 +1,7 @@
 .container{
     display: flex;
     flex-direction: row;
-    width: 1280px;
-    margin-left: 40px;
-    margin-right: 40px;
+    width: 1080px;
     border-bottom: 2px solid #111111 ;
-    margin-bottom: 40px;
+     margin-bottom: 40px;
 }

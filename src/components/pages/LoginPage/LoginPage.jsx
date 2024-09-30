@@ -5,7 +5,7 @@ import LoginForm from "../../LoginForm/LiginForm";
 
 export default function LoginPage() {
     const isLoggedIn = useSelector(selectisLoggedIn);
-    console.log("isLoggedIn", isLoggedIn);
+    // console.log("isLoggedIn", isLoggedIn);
     return isLoggedIn ? <ContactPage /> : <LoginForm/>
     
 }

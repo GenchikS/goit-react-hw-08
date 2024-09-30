@@ -1,8 +1,13 @@
 import "./App.module.css";
 import Layout from "./components/Layout/Layout";
-
 import { Route, Routes } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "./redux/auth/operations";
+// import RestrictedRoute from "./components/pages/RestrictedRoute/RestrictedRoute"
+// import ContactList from "./components/ContactList/ContactList";
+import ContactPage from "./components/pages/ContactPage/ContactPage";
+// import PrivateRoute from "./components/pages/PrivateRoute/PrivateRoute";
 
 const RegistrationPage = lazy(() =>
   import(`./components/pages/RegistrationPage/RegistrationPage`)
@@ -12,6 +17,11 @@ const HomePage = lazy(() => import(`./components/pages/HomePage/HomePage`));
 
 
 function App() {
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(refreshUser())
+  }, [dispatch])
     
   return (
     <div>
@@ -23,6 +33,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="register" element={<RegistrationPage />} />
             <Route path="login" element={<LoginPage />} />
+            <Route path="contacts" element={<LoginPage />} />
           </Routes>
         </Suspense>
       </Layout>

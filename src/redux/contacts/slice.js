@@ -6,6 +6,7 @@ import {
 } from "./operations.js";
 import { selectFilter } from "../filters/selectors.js";
 import { selectContacts } from "../contacts/selectors.js";
+import { logOut } from "../auth/operations.js"
 
 const initialState = {
   contacts: {
@@ -26,6 +27,14 @@ const contactsSlice = createSlice({
       .addCase(fetchContacts.pending, (state) => {
         //  payload не використовуємо (немає потреби)
         (state.loading = true), (state.error = null);
+      })
+      //  додатковий addCase(logOut.fulfilled) для додаткового зачищення данних попередніх користувачів 
+      .addCase(logOut.fulfilled, () => {
+        return {
+          items: [],
+          loading: false,
+          error: null,
+        };
       })
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         (state.loading = false), (state.items = payload);

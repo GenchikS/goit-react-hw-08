@@ -15,7 +15,7 @@ export default function ContactPage() {
   const error = useSelector(selectError);
 
   const contacts = useSelector(selectFilteredContacts);
-  console.log("contacts", contacts);
+  // console.log("contacts", contacts);
 
   // Викликаємо операцію
   useEffect(() => {

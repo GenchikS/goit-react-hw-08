@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logIn, logOut, register } from "./operations";
+import { logIn, logOut, refreshUser, register } from "./operations";
 
 
 const authSlice = createSlice({
@@ -29,6 +29,16 @@ const authSlice = createSlice({
         state.user = {};
         state.token = null;
         state.isLoggedIn = false;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        //  запускаємо оновлення на true
+        state.isRefreshing = true; 
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isRefreshing = false;
+        //  стан нового залогінення
+        state.isLoggedIn = true; 
       }),
 });
 
